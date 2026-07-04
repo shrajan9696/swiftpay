@@ -81,7 +81,7 @@ services:
   ledger-service:
 
     build:
-      context: ./ledgerservice
+      context: ./ledger-service
 
     container_name: ledger-service
 
