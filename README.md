@@ -358,32 +358,25 @@ GitHub Actions ✓ Passing
 The repository includes screenshots demonstrating:
 
 - Swagger UI
-- Payment Request via Postman
-- Transaction History API
+
+  ![Swagger](screenshots/swagger_success_response.png)
+  ![Swagger](screenshots/swagger_success_2.png)
+  ![Swagger](screenshots/swagger_3.png)
+  ![Swagger](screenshots/duplicate_txn.png)
 - Kafka UI
-- PaymentCompleted Topic
-- PaymentFailed Topic
-- Analytics Events Table
-- Docker Containers
-- GitHub Actions CI
+  ![Swagger](screenshots/kafka_topics.png)
+ ![Swagger](screenshots/payment_initiated_event.png)
+ ![Swagger](screenshots/payment-failed_event.png)
+ ![Swagger](screenshots/payment_complete_event.png)
+- Docker
+  ![Swagger](screenshots/docker_images.png)
+![Swagger](screenshots/docker_containers_1.png)
+- Tables
+![Swagger](screenshots/payments_table_1.png)
+![Swagger](screenshots/accounts_and_analytics_events_table.png)
+
 
 ---
-
-# 🔮 Future Improvements
-
-- ClickHouse integration for OLAP analytics
-- Kubernetes Deployment
-- Prometheus & Grafana Monitoring
-- Distributed Tracing (OpenTelemetry / Zipkin)
-- Dead Letter Queue (DLQ)
-- Outbox Pattern
-- Saga Pattern
-- Authentication & Authorization
-- Rate Limiting
-- Centralized Logging (ELK Stack)
-
----
-
 # 👨‍💻 Author
 
 **Shrajan Jain**
