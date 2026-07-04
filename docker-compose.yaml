@@ -99,5 +99,26 @@ services:
 
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+  analytics-service:
+
+    build:
+      context: ./analytics-service
+
+    container_name: analytics-service
+
+    ports:
+      - "8083:8083"
+
+    depends_on:
+      - postgres
+      - kafka
+
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/swiftpay
+      DB_USERNAME: postgres
+      DB_PASSWORD: 888888
+
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
 volumes:
   postgres-data:

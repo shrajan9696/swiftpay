@@ -1,27 +1,22 @@
 spring:
   application:
-    name: ledger-service
+    name: analytics-service
 
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/swiftpay}
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:888888}
 
-  sql:
-    init:
-      mode: always
-
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-    defer-datasource-initialization: true
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
 
     consumer:
-      group-id: ledger-group-v2
+      group-id: analytics-group
       auto-offset-reset: earliest
 
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -29,30 +24,14 @@ spring:
 
       properties:
         spring.json.trusted.packages: "*"
-        spring.json.value.default.type: com.ledger_service.event.PaymentInitiatedEvent
         spring.json.use.type.headers: false
-
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-
-      properties:
-        spring.json.add.type.headers: false
-
+        spring.json.value.default.type: com.analytics_service.event.PaymentCompletedEvent
 
 server:
-  port: 8082
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+  port: 8083
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
-
-  endpoint:
-    health:
-      show-details: always
+        include: health,info
