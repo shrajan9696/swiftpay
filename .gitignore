@@ -1,0 +1,25 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Maven Wrapper Jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+
+# Docker
+docker-compose.override.yml

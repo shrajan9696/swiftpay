@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: transaction-gateway
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/swiftpay}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:888888}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      properties:
+        spring.json.add.type.headers: false
+
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      properties:
+        spring.json.trusted.packages: "*"
+
+    admin:
+      auto-create: true
+
+server:
+  port: 8080
+
+swiftpay:
+  kafka:
+    topics:
+      payment-initiated: payment-initiated
+      payment-completed: payment-completed
+      payment-failed: payment-failed
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+  endpoint:
+    health:
+      show-details: always
