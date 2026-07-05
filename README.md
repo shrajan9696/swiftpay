@@ -374,6 +374,11 @@ The repository includes screenshots demonstrating:
 - Tables
 ![Swagger](screenshots/payments_table_1.png)
 ![Swagger](screenshots/accounts_and_analytics_events_table.png)
+- Load Testing
+    ![Swagger](screenshots/load_testing_1.png)
+    ![Swagger](screenshots/load_testing_payment.png)
+    ![Swagger](screenshots/load_testing_analytics_events.png)
+    ![Swagger](screenshots/load_testing_acc_table.png)
 
 
 ---
