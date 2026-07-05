@@ -184,23 +184,22 @@ Analytics Service stores completed transaction
 
 # 🚀 Getting Started
 
-## Clone Repository
+## Quick Start
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/shrajan9696/swiftpay.git
-
 cd swiftpay
 ```
 
----
-
-## Run the Complete System
+Start the complete ecosystem:
 
 ```bash
 docker compose up --build
 ```
 
-This command starts:
+This will start:
 
 - PostgreSQL
 - Redis
